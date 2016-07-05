@@ -20,11 +20,6 @@ int main()
 	cout << "Your guess was: " << Guess << endl;
 
 
-	cout << "Enter your guess: ";
-	string Guess = "";
-	cin >> Guess;
-
-	cout << "Your guess was: " << Guess << endl;
 
 	cout << endl;
 	return 0;

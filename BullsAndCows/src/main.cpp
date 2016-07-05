@@ -5,26 +5,22 @@ using namespace std;
 
 
 void PrintIntro();
-string GetGuessAndPrintBack();
+void PlayGame();
+string GetGuess();
 
 // entry point for app
-int main() 
+int main()
 {
 	PrintIntro();
+	PlayGame();
 
-	//loop for number of turns/guesses
-	constexpr int NUMBER_OF_TURNS = 5;
-	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
-	{
-		GetGuessAndPrintBack();
-		cout << endl;
-	}
 
-		return 0;
+	return 0;
 }
 
+
 // introduce the game
-void PrintIntro() 
+void PrintIntro()
 {
 	constexpr int WORD_LENGTH = 9;
 	cout << "Welcome to Bulls and Cows, a fun word game\n";
@@ -33,14 +29,26 @@ void PrintIntro()
 	return;
 }
 
-string GetGuessAndPrintBack()
+
+void PlayGame()
+{
+	//loop for number of turns/guesses
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
+	{
+		string Guess = GetGuess();
+		//prints back
+		cout << "Your guess was: " << Guess << endl;
+		cout << endl;
+	}
+}
+
+
+string GetGuess()
 {
 	// get guess from player and repeat it back
 	cout << "Enter your guess: ";
 	string Guess = "";
 	getline(cin, Guess);
-
-	//prints back
-	cout << "Your guess was: " << Guess << endl;
 	return Guess;
 }

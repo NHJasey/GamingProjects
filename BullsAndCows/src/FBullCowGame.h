@@ -33,7 +33,6 @@ public:
 	void Reset();
 	FBullCowCount SubmitValidGuess(FString);
 
-	// Ignore and focus on public
 private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;

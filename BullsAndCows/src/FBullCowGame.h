@@ -4,7 +4,7 @@
 using FString = std::string;
 using int32 = int;
 
-struct FBullCowCount 
+struct FBullCowCount
 {
 	int32 Bulls = 0;
 	int32 Cows = 0;
@@ -12,6 +12,7 @@ struct FBullCowCount
 
 enum class EGuessStatus
 {
+	Invalid_Status,
 	OK,
 	Not_Isogram,
 	Wrong_Length,
@@ -19,24 +20,25 @@ enum class EGuessStatus
 };
 
 
-class FBullCowGame{
+class FBullCowGame {
 public:
 	FBullCowGame();
 
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
-
 	bool IsGameWon() const;
 	EGuessStatus CheckGuessValidity(FString) const;
 
 	void Reset();
-	FBullCowCount SubmitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 
-// Ignore and focus on public
+	// Ignore and focus on public
 private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
 
+	bool IsIsogram(FString) const;
 };
